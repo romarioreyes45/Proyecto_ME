@@ -1,0 +1,117 @@
+ETAPA 12. MODELO DE EXPECTATIVAS ADAPTATIVAS
+======================================================================
+
+Fórmula utilizada:
+E_t = lambda * Y_{t-1} + (1 - lambda) * E_{t-1}
+
+Mejores lambdas:
+                 variable  lambda  peso_dato_observado_anterior  peso_expectativa_pasada      MAE     RMSE      MAPE  sesgo_promedio
+            casos_diarios     0.2                           0.2                      0.8 4.257357 6.842990 46.220874       -0.037203
+      defunciones_diarias     0.1                           0.1                      0.9 0.686501 0.987048 51.802256        0.002788
+hospitalizaciones_diarias     0.2                           0.2                      0.8 2.325098 3.309493 51.488877       -0.034047
+
+Formación de expectativas:
+                 variable  lambda  peso_expectativa_pasada                                                                                                                                                                   interpretacion
+            casos_diarios     0.2                      0.8             Para casos_diarios, lambda = 0.20. Esto significa que la expectativa actual asigna 20.0% de peso al dato observado anterior y 80.0% de peso a la expectativa pasada.
+      defunciones_diarias     0.1                      0.9       Para defunciones_diarias, lambda = 0.10. Esto significa que la expectativa actual asigna 10.0% de peso al dato observado anterior y 90.0% de peso a la expectativa pasada.
+hospitalizaciones_diarias     0.2                      0.8 Para hospitalizaciones_diarias, lambda = 0.20. Esto significa que la expectativa actual asigna 20.0% de peso al dato observado anterior y 80.0% de peso a la expectativa pasada.
+
+Coeficientes de modelos:
+        variable_modelada                              variable  coeficiente  error_estandar         t       p_valor  IC_95_inf  IC_95_sup
+            casos_diarios                                 const     0.233889        0.416415  0.561672  5.745823e-01  -0.584178   1.051956
+            casos_diarios             expectativa_casos_diarios     0.981622        0.019570 50.160694 3.522979e-201   0.943177   1.020068
+hospitalizaciones_diarias                                 const     0.142652        0.216432  0.659109  5.101179e-01  -0.282538   0.567842
+hospitalizaciones_diarias expectativa_hospitalizaciones_diarias     0.973859        0.023758 40.990773 7.384945e-165   0.927186   1.020533
+      defunciones_diarias                                 const     0.071357        0.063134  1.130257  2.588900e-01  -0.052672   0.195386
+      defunciones_diarias       expectativa_defunciones_diarias     0.918353        0.054782 16.763669  1.002259e-50   0.810731   1.025975
+
+Métricas de modelos:
+        variable_modelada  observaciones  r_cuadrada  r_cuadrada_ajustada  estadistico_f     p_valor_f         aic         bic
+            casos_diarios            521    0.829000             0.828671    2516.095223 3.522979e-201 3485.634264 3494.145764
+hospitalizaciones_diarias            521    0.764010             0.763555    1680.243441 7.384945e-165 2728.325380 2736.836880
+      defunciones_diarias            521    0.351267             0.350017     281.020589  1.002259e-50 1466.720637 1475.232137
+
+======================================================================
+Resumen modelo para casos_diarios:
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          casos_diarios   R-squared:                       0.829
+Model:                            OLS   Adj. R-squared:                  0.829
+Method:                 Least Squares   F-statistic:                     2516.
+Date:                Wed, 17 Jun 2026   Prob (F-statistic):          3.52e-201
+Time:                        22:32:03   Log-Likelihood:                -1740.8
+No. Observations:                 521   AIC:                             3486.
+Df Residuals:                     519   BIC:                             3494.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.2339      0.416      0.562      0.575      -0.584       1.052
+expectativa_casos_diarios     0.9816      0.020     50.161      0.000       0.943       1.020
+==============================================================================
+Omnibus:                       82.916   Durbin-Watson:                   1.441
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              654.079
+Skew:                           0.407   Prob(JB):                    9.30e-143
+Kurtosis:                       8.429   Cond. No.                         29.6
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+======================================================================
+Resumen modelo para hospitalizaciones_diarias:
+                                OLS Regression Results                               
+=====================================================================================
+Dep. Variable:     hospitalizaciones_diarias   R-squared:                       0.764
+Model:                                   OLS   Adj. R-squared:                  0.764
+Method:                        Least Squares   F-statistic:                     1680.
+Date:                       Wed, 17 Jun 2026   Prob (F-statistic):          7.38e-165
+Time:                               22:32:03   Log-Likelihood:                -1362.2
+No. Observations:                        521   AIC:                             2728.
+Df Residuals:                            519   BIC:                             2737.
+Df Model:                                  1                                         
+Covariance Type:                   nonrobust                                         
+=========================================================================================================
+                                            coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------
+const                                     0.1427      0.216      0.659      0.510      -0.283       0.568
+expectativa_hospitalizaciones_diarias     0.9739      0.024     40.991      0.000       0.927       1.021
+==============================================================================
+Omnibus:                       57.504   Durbin-Watson:                   1.918
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              204.086
+Skew:                           0.450   Prob(JB):                     4.82e-45
+Kurtosis:                       5.931   Cond. No.                         13.7
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+======================================================================
+Resumen modelo para defunciones_diarias:
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.351
+Model:                             OLS   Adj. R-squared:                  0.350
+Method:                  Least Squares   F-statistic:                     281.0
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           1.00e-50
+Time:                         22:32:03   Log-Likelihood:                -731.36
+No. Observations:                  521   AIC:                             1467.
+Df Residuals:                      519   BIC:                             1475.
+Df Model:                            1                                         
+Covariance Type:             nonrobust                                         
+===================================================================================================
+                                      coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                               0.0714      0.063      1.130      0.259      -0.053       0.195
+expectativa_defunciones_diarias     0.9184      0.055     16.764      0.000       0.811       1.026
+==============================================================================
+Omnibus:                      154.777   Durbin-Watson:                   2.145
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              613.285
+Skew:                           1.301   Prob(JB):                    6.71e-134
+Kurtosis:                       7.635   Cond. No.                         2.56
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+

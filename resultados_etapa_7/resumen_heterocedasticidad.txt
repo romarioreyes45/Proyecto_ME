@@ -1,0 +1,127 @@
+ETAPA 7. HETEROCEDASTICIDAD
+======================================================================
+
+Pruebas de heterocedasticidad:
+                   modelo        prueba  estadistico_lm   p_valor_lm  estadistico_f    p_valor_f                                          decision_5
+  Regresión lineal simple Breusch-Pagan       54.687483 1.413034e-13      60.866485 3.381381e-14 Rechazar H0: existe evidencia de heterocedasticidad
+  Regresión lineal simple         White       61.448060 4.536525e-14      34.631662 7.650539e-15 Rechazar H0: existe evidencia de heterocedasticidad
+Regresión lineal múltiple Breusch-Pagan       57.488189 3.285477e-13      32.123110 7.059571e-14 Rechazar H0: existe evidencia de heterocedasticidad
+Regresión lineal múltiple         White       65.496378 8.841447e-13      14.810260 1.374331e-13 Rechazar H0: existe evidencia de heterocedasticidad
+
+Conclusiones:
+En el modelo Regresión lineal simple se detecta evidencia de heterocedasticidad al menos en una de las pruebas aplicadas. Por ello, se recomienda interpretar los resultados utilizando errores estándar robustos HC3.
+En el modelo Regresión lineal múltiple se detecta evidencia de heterocedasticidad al menos en una de las pruebas aplicadas. Por ello, se recomienda interpretar los resultados utilizando errores estándar robustos HC3.
+
+======================================================================
+
+Resumen modelo RLS OLS:
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.343
+Model:                             OLS   Adj. R-squared:                  0.341
+Method:                  Least Squares   F-statistic:                     270.5
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           3.15e-49
+Time:                         22:31:53   Log-Likelihood:                -734.81
+No. Observations:                  521   AIC:                             1474.
+Df Residuals:                      519   BIC:                             1482.
+Df Model:                            1                                         
+Covariance Type:             nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.1351      0.061      2.208      0.028       0.015       0.255
+hospitalizaciones_diarias     0.1052      0.006     16.447      0.000       0.093       0.118
+==============================================================================
+Omnibus:                      140.330   Durbin-Watson:                   1.982
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              459.788
+Skew:                           1.240   Prob(JB):                    1.44e-100
+Kurtosis:                       6.877   Cond. No.                         13.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Resumen modelo RLS con errores robustos HC3:
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.343
+Model:                             OLS   Adj. R-squared:                  0.341
+Method:                  Least Squares   F-statistic:                     146.1
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           8.11e-30
+Time:                         22:31:53   Log-Likelihood:                -734.81
+No. Observations:                  521   AIC:                             1474.
+Df Residuals:                      519   BIC:                             1482.
+Df Model:                            1                                         
+Covariance Type:                   HC3                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.1351      0.048      2.797      0.005       0.040       0.230
+hospitalizaciones_diarias     0.1052      0.009     12.089      0.000       0.088       0.122
+==============================================================================
+Omnibus:                      140.330   Durbin-Watson:                   1.982
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              459.788
+Skew:                           1.240   Prob(JB):                    1.44e-100
+Kurtosis:                       6.877   Cond. No.                         13.5
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+======================================================================
+
+Resumen modelo RLM OLS:
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.350
+Model:                             OLS   Adj. R-squared:                  0.347
+Method:                  Least Squares   F-statistic:                     139.2
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           4.11e-49
+Time:                         22:31:53   Log-Likelihood:                -732.03
+No. Observations:                  521   AIC:                             1470.
+Df Residuals:                      518   BIC:                             1483.
+Df Model:                            2                                         
+Covariance Type:             nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.1490      0.061      2.435      0.015       0.029       0.269
+hospitalizaciones_diarias     0.0617      0.020      3.161      0.002       0.023       0.100
+casos_diarios                 0.0189      0.008      2.357      0.019       0.003       0.035
+==============================================================================
+Omnibus:                      138.826   Durbin-Watson:                   1.953
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              465.335
+Skew:                           1.217   Prob(JB):                    8.99e-102
+Kurtosis:                       6.938   Cond. No.                         34.1
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Resumen modelo RLM con errores robustos HC3:
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.350
+Model:                             OLS   Adj. R-squared:                  0.347
+Method:                  Least Squares   F-statistic:                     72.13
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           2.32e-28
+Time:                         22:31:53   Log-Likelihood:                -732.03
+No. Observations:                  521   AIC:                             1470.
+Df Residuals:                      518   BIC:                             1483.
+Df Model:                            2                                         
+Covariance Type:                   HC3                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.1490      0.050      2.997      0.003       0.051       0.247
+hospitalizaciones_diarias     0.0617      0.027      2.291      0.022       0.009       0.115
+casos_diarios                 0.0189      0.011      1.697      0.090      -0.003       0.041
+==============================================================================
+Omnibus:                      138.826   Durbin-Watson:                   1.953
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              465.335
+Skew:                           1.217   Prob(JB):                    8.99e-102
+Kurtosis:                       6.938   Cond. No.                         34.1
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

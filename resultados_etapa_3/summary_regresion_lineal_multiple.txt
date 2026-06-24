@@ -1,0 +1,26 @@
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.350
+Model:                             OLS   Adj. R-squared:                  0.347
+Method:                  Least Squares   F-statistic:                     139.2
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           4.11e-49
+Time:                         22:31:43   Log-Likelihood:                -732.03
+No. Observations:                  521   AIC:                             1470.
+Df Residuals:                      518   BIC:                             1483.
+Df Model:                            2                                         
+Covariance Type:             nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.1490      0.061      2.435      0.015       0.029       0.269
+hospitalizaciones_diarias     0.0617      0.020      3.161      0.002       0.023       0.100
+casos_diarios                 0.0189      0.008      2.357      0.019       0.003       0.035
+==============================================================================
+Omnibus:                      138.826   Durbin-Watson:                   1.953
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              465.335
+Skew:                           1.217   Prob(JB):                    8.99e-102
+Kurtosis:                       6.938   Cond. No.                         34.1
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

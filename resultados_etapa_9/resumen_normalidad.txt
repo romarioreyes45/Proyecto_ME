@@ -1,0 +1,79 @@
+ETAPA 9. NORMALIDAD
+======================================================================
+
+Pruebas aplicadas:
+1. Jarque-Bera
+2. Shapiro-Wilk
+
+Resultados de pruebas de normalidad:
+                   modelo       prueba  estadistico       p_valor  n_residuos                        decision_5
+  Regresión lineal simple  Jarque-Bera   459.788459 1.439477e-100         521 Rechazar H0: residuos no normales
+  Regresión lineal simple Shapiro-Wilk     0.907437  2.880999e-17         521 Rechazar H0: residuos no normales
+Regresión lineal múltiple  Jarque-Bera   465.335269 8.989390e-102         521 Rechazar H0: residuos no normales
+Regresión lineal múltiple Shapiro-Wilk     0.908973  4.053113e-17         521 Rechazar H0: residuos no normales
+
+Estadísticos descriptivos de residuos:
+                   modelo   n         media   mediana  desviacion_estandar    minimo   maximo  asimetria  curtosis
+  Regresión lineal simple 521 -2.045708e-16 -0.240312             0.992435 -3.080584 5.235002   1.239533  3.877436
+Regresión lineal múltiple 521 -1.500186e-15 -0.229653             0.987153 -3.012786 5.134432   1.217086  3.938350
+
+Conclusiones:
+En el modelo Regresión lineal simple, las pruebas Jarque-Bera y Shapiro-Wilk rechazan la hipótesis de normalidad al 5% de significancia. Esto sugiere que los residuos no siguen una distribución normal.
+En el modelo Regresión lineal múltiple, las pruebas Jarque-Bera y Shapiro-Wilk rechazan la hipótesis de normalidad al 5% de significancia. Esto sugiere que los residuos no siguen una distribución normal.
+
+======================================================================
+
+Resumen modelo RLS:
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.343
+Model:                             OLS   Adj. R-squared:                  0.341
+Method:                  Least Squares   F-statistic:                     270.5
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           3.15e-49
+Time:                         22:31:57   Log-Likelihood:                -734.81
+No. Observations:                  521   AIC:                             1474.
+Df Residuals:                      519   BIC:                             1482.
+Df Model:                            1                                         
+Covariance Type:             nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.1351      0.061      2.208      0.028       0.015       0.255
+hospitalizaciones_diarias     0.1052      0.006     16.447      0.000       0.093       0.118
+==============================================================================
+Omnibus:                      140.330   Durbin-Watson:                   1.982
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              459.788
+Skew:                           1.240   Prob(JB):                    1.44e-100
+Kurtosis:                       6.877   Cond. No.                         13.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Resumen modelo RLM:
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.350
+Model:                             OLS   Adj. R-squared:                  0.347
+Method:                  Least Squares   F-statistic:                     139.2
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           4.11e-49
+Time:                         22:31:57   Log-Likelihood:                -732.03
+No. Observations:                  521   AIC:                             1470.
+Df Residuals:                      518   BIC:                             1483.
+Df Model:                            2                                         
+Covariance Type:             nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.1490      0.061      2.435      0.015       0.029       0.269
+hospitalizaciones_diarias     0.0617      0.020      3.161      0.002       0.023       0.100
+casos_diarios                 0.0189      0.008      2.357      0.019       0.003       0.035
+==============================================================================
+Omnibus:                      138.826   Durbin-Watson:                   1.953
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              465.335
+Skew:                           1.217   Prob(JB):                    8.99e-102
+Kurtosis:                       6.938   Cond. No.                         34.1
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

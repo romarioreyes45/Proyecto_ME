@@ -1,0 +1,63 @@
+ETAPA 11. MODELO DE AJUSTE PARCIAL
+======================================================================
+
+Modelo principal: defunciones diarias explicadas por hospitalizaciones diarias y defunciones rezagadas.
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.348
+Model:                             OLS   Adj. R-squared:                  0.346
+Method:                  Least Squares   F-statistic:                     138.1
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           9.11e-49
+Time:                         22:32:01   Log-Likelihood:                -731.47
+No. Observations:                  520   AIC:                             1469.
+Df Residuals:                      517   BIC:                             1482.
+Df Model:                            2                                         
+Covariance Type:             nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.1176      0.062      1.904      0.057      -0.004       0.239
+hospitalizaciones_diarias     0.0971      0.007     13.056      0.000       0.083       0.112
+defunciones_lag_1             0.0869      0.041      2.099      0.036       0.006       0.168
+==============================================================================
+Omnibus:                      136.488   Durbin-Watson:                   2.161
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              440.161
+Skew:                           1.212   Prob(JB):                     2.63e-96
+Kurtosis:                       6.799   Cond. No.                         13.9
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Modelo complementario: defunciones diarias explicadas por casos diarios y defunciones rezagadas.
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.342
+Model:                             OLS   Adj. R-squared:                  0.340
+Method:                  Least Squares   F-statistic:                     134.6
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           8.78e-48
+Time:                         22:32:01   Log-Likelihood:                -733.75
+No. Observations:                  520   AIC:                             1473.
+Df Residuals:                      517   BIC:                             1486.
+Df Model:                            2                                         
+Covariance Type:             nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const                 0.1879      0.060      3.155      0.002       0.071       0.305
+casos_diarios         0.0396      0.003     12.824      0.000       0.033       0.046
+defunciones_lag_1     0.0876      0.042      2.101      0.036       0.006       0.170
+==============================================================================
+Omnibus:                      140.070   Durbin-Watson:                   2.093
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              474.073
+Skew:                           1.227   Prob(JB):                    1.14e-103
+Kurtosis:                       6.982   Cond. No.                         30.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Parámetros de ajuste:
+                              modelo      variable_explicativa  intercepto_corto_plazo  beta_corto_plazo  rho_persistencia  velocidad_ajuste_lambda  beta_largo_plazo  intercepto_largo_plazo                  interpretacion_velocidad
+Ajuste parcial con hospitalizaciones hospitalizaciones_diarias                0.117575          0.097117          0.086873                 0.913127          0.106356                0.128761 Ajuste rápido: baja persistencia temporal
+            Ajuste parcial con casos             casos_diarios                0.187903          0.039551          0.087603                 0.912397          0.043348                0.205944 Ajuste rápido: baja persistencia temporal

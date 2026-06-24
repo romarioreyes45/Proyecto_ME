@@ -1,0 +1,67 @@
+ETAPA 10. MODELOS CON REZAGOS DISTRIBUIDOS
+======================================================================
+
+Modelo principal: defunciones diarias explicadas por casos diarios contemporáneos y rezagados.
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.382
+Model:                             OLS   Adj. R-squared:                  0.377
+Method:                  Least Squares   F-statistic:                     77.59
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           3.26e-51
+Time:                         22:31:58   Log-Likelihood:                -703.70
+No. Observations:                  507   AIC:                             1417.
+Df Residuals:                      502   BIC:                             1439.
+Df Model:                            4                                         
+Covariance Type:             nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             0.1364      0.059      2.293      0.022       0.020       0.253
+casos_diarios     0.0067      0.007      0.966      0.335      -0.007       0.020
+casos_lag_1       0.0090      0.006      1.394      0.164      -0.004       0.022
+casos_lag_7       0.0134      0.007      1.886      0.060      -0.001       0.027
+casos_lag_14      0.0188      0.006      3.041      0.002       0.007       0.031
+==============================================================================
+Omnibus:                      110.608   Durbin-Watson:                   2.072
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              320.868
+Skew:                           1.038   Prob(JB):                     2.11e-70
+Kurtosis:                       6.299   Cond. No.                         60.1
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Modelo complementario: defunciones diarias explicadas por hospitalizaciones contemporáneas y rezagadas.
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     defunciones_diarias   R-squared:                       0.399
+Model:                             OLS   Adj. R-squared:                  0.394
+Method:                  Least Squares   F-statistic:                     83.37
+Date:                 Wed, 17 Jun 2026   Prob (F-statistic):           3.01e-54
+Time:                         22:31:58   Log-Likelihood:                -696.60
+No. Observations:                  507   AIC:                             1403.
+Df Residuals:                      502   BIC:                             1424.
+Df Model:                            4                                         
+Covariance Type:             nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                         0.0100      0.063      0.159      0.874      -0.114       0.134
+hospitalizaciones_diarias     0.0341      0.012      2.753      0.006       0.010       0.058
+hospitalizaciones_lag_1       0.0294      0.012      2.411      0.016       0.005       0.053
+hospitalizaciones_lag_7       0.0266      0.012      2.180      0.030       0.003       0.051
+hospitalizaciones_lag_14      0.0335      0.012      2.906      0.004       0.011       0.056
+==============================================================================
+Omnibus:                      113.716   Durbin-Watson:                   2.128
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              343.275
+Skew:                           1.052   Prob(JB):                     2.88e-75
+Kurtosis:                       6.438   Cond. No.                         27.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Efectos acumulados y multiplicadores:
+                                 modelo  efecto_contemporaneo  efecto_lag_1  efecto_lag_7  efecto_lag_14  efecto_acumulado  multiplicador_largo_plazo
+            Modelo con rezagos de casos              0.006730      0.008996      0.013353       0.018798          0.047877                   0.047877
+Modelo con rezagos de hospitalizaciones              0.034071      0.029367      0.026635       0.033492          0.123564                   0.123564

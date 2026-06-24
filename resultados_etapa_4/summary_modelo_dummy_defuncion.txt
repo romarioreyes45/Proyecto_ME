@@ -1,0 +1,31 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              defuncion   R-squared:                       0.105
+Model:                            OLS   Adj. R-squared:                  0.104
+Method:                 Least Squares   F-statistic:                     128.1
+Date:                Wed, 17 Jun 2026   Prob (F-statistic):          8.29e-179
+Time:                        22:31:46   Log-Likelihood:                 742.54
+No. Observations:                7648   AIC:                            -1469.
+Df Residuals:                    7640   BIC:                            -1414.
+Df Model:                           7                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              -0.0155      0.004     -3.881      0.000      -0.023      -0.008
+sexo_masculino      0.0129      0.005      2.482      0.013       0.003       0.023
+diabetes            0.0511      0.008      6.363      0.000       0.035       0.067
+hipertension        0.0499      0.007      6.750      0.000       0.035       0.064
+obesidad            0.0003      0.010      0.031      0.975      -0.019       0.020
+neumonia            0.0818      0.007     11.477      0.000       0.068       0.096
+inmunosupresion    -0.0027      0.012     -0.233      0.815      -0.025       0.020
+hospitalizado       0.0698      0.006     11.501      0.000       0.058       0.082
+==============================================================================
+Omnibus:                     4981.703   Durbin-Watson:                   1.999
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            44238.777
+Skew:                           3.179   Prob(JB):                         0.00
+Kurtosis:                      12.920   Cond. No.                         5.85
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

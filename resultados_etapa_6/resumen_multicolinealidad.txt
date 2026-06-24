@@ -1,0 +1,46 @@
+ETAPA 6. MULTICOLINEALIDAD
+============================================================
+
+Variables clínicas analizadas:
+edad, sexo_masculino, diabetes, hipertension, obesidad, neumonia, inmunosupresion
+
+VIF - Variables clínicas:
+       variable      VIF                               interpretacion
+           edad 1.359454 Bajo: no sugiere multicolinealidad relevante
+ sexo_masculino 1.014493 Bajo: no sugiere multicolinealidad relevante
+       diabetes 1.366347 Bajo: no sugiere multicolinealidad relevante
+   hipertension 1.528182 Bajo: no sugiere multicolinealidad relevante
+       obesidad 1.058278 Bajo: no sugiere multicolinealidad relevante
+       neumonia 1.043261 Bajo: no sugiere multicolinealidad relevante
+inmunosupresion 1.006842 Bajo: no sugiere multicolinealidad relevante
+
+Correlaciones clínicas altas:
+No se detectaron correlaciones absolutas mayores o iguales a 0.70.
+
+------------------------------------------------------------
+
+Variables temporales analizadas:
+hospitalizaciones_diarias, casos_diarios
+
+VIF - Variables temporales:
+                 variable      VIF                              interpretacion
+hospitalizaciones_diarias 9.394659 Moderado: revisar posible multicolinealidad
+            casos_diarios 9.394659 Moderado: revisar posible multicolinealidad
+
+Correlaciones temporales altas:
+               variable_1    variable_2  correlacion  correlacion_absoluta
+hospitalizaciones_diarias casos_diarios     0.945281              0.945281
+
+------------------------------------------------------------
+
+Recomendaciones:
+              bloque                  variable      VIF                                  diagnostico                                                                                                recomendacion
+  Variables clínicas                      edad 1.359454 Bajo: no sugiere multicolinealidad relevante                                                             No se requiere corrección por multicolinealidad.
+  Variables clínicas            sexo_masculino 1.014493 Bajo: no sugiere multicolinealidad relevante                                                             No se requiere corrección por multicolinealidad.
+  Variables clínicas                  diabetes 1.366347 Bajo: no sugiere multicolinealidad relevante                                                             No se requiere corrección por multicolinealidad.
+  Variables clínicas              hipertension 1.528182 Bajo: no sugiere multicolinealidad relevante                                                             No se requiere corrección por multicolinealidad.
+  Variables clínicas                  obesidad 1.058278 Bajo: no sugiere multicolinealidad relevante                                                             No se requiere corrección por multicolinealidad.
+  Variables clínicas                  neumonia 1.043261 Bajo: no sugiere multicolinealidad relevante                                                             No se requiere corrección por multicolinealidad.
+  Variables clínicas           inmunosupresion 1.006842 Bajo: no sugiere multicolinealidad relevante                                                             No se requiere corrección por multicolinealidad.
+Variables temporales hospitalizaciones_diarias 9.394659  Moderado: revisar posible multicolinealidad Revisar correlaciones con otras variables. La multicolinealidad es moderada, pero no necesariamente crítica.
+Variables temporales             casos_diarios 9.394659  Moderado: revisar posible multicolinealidad Revisar correlaciones con otras variables. La multicolinealidad es moderada, pero no necesariamente crítica.

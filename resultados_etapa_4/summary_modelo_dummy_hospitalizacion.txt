@@ -1,0 +1,30 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          hospitalizado   R-squared:                       0.309
+Model:                            OLS   Adj. R-squared:                  0.309
+Method:                 Least Squares   F-statistic:                     569.8
+Date:                Wed, 17 Jun 2026   Prob (F-statistic):               0.00
+Time:                        22:31:46   Log-Likelihood:                -4108.2
+No. Observations:                7648   AIC:                             8230.
+Df Residuals:                    7641   BIC:                             8279.
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.2472      0.007     35.551      0.000       0.234       0.261
+sexo_masculino      0.0998      0.010     10.257      0.000       0.081       0.119
+diabetes            0.1261      0.015      8.369      0.000       0.097       0.156
+hipertension        0.0531      0.014      3.810      0.000       0.026       0.080
+obesidad           -0.0072      0.019     -0.385      0.700      -0.044       0.029
+neumonia            0.5941      0.012     51.257      0.000       0.571       0.617
+inmunosupresion     0.1493      0.022      6.886      0.000       0.107       0.192
+==============================================================================
+Omnibus:                      976.181   Durbin-Watson:                   1.877
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              733.991
+Skew:                           0.660   Prob(JB):                    4.13e-160
+Kurtosis:                       2.250   Cond. No.                         5.31
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
